@@ -8,16 +8,13 @@ class Vote extends Component {
 
   componentWillMount = () => {
     this.props.actions.fetchVotes_Request();
-  }
- 
-  componentDidMount = () => {
-  }
+  } 
   
   render() {
     
     return (  
-      <div className="vote-container">
-        <VoteList votes={this.props.votes} />
+      <div className="container vote-container">
+        <VoteList votes={this.props.votes} actions={this.props.actions} />
       </div>
     );
   }

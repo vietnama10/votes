@@ -1,0 +1,21 @@
+.vote-container {
+  .action{
+    > * {
+      font-size: 20px;
+    }
+    .fas, .far{
+      padding-right: 15px;
+    }
+    .add, .remove {
+      color: #333;
+      :hover {
+        color: rgb(236, 48, 120);
+      }
+    }
+    .point {
+      i{
+        color: rgb(236, 48, 120);
+      }
+    }
+  }
+}
