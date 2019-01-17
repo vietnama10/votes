@@ -7,14 +7,29 @@ const VoteItem = ({ vote, onAddVote, onRemoveVote }) => {
     let actionNode = e.target.parentNode.parentNode;
     let liNode = e.target.parentNode.parentNode.parentNode.parentNode;
     liNode.classList.add("re-order")
-    if(actionNode.classList.contains("add")) {
-      actionNode.classList.remove("add")
-      actionNode.classList.add("add1");
-    } else if(actionNode.classList.contains("add1")) {
-      actionNode.classList.remove("add1")
-      actionNode.classList.add("add");
+    if(actionNode.classList.contains("voted")) {
+      actionNode.classList.remove("voted")
+      actionNode.classList.add("re-voted");
+    } else if(actionNode.classList.contains("re-voted")) {
+      actionNode.classList.remove("re-voted")
+      actionNode.classList.add("voted");
     } else {
-      actionNode.classList.add("add");
+      actionNode.classList.add("voted");
+    }
+  }
+  const removeVote_Combine_Animation = (e) => {
+    onRemoveVote();
+    let actionNode = e.target.parentNode.parentNode;
+    let liNode = e.target.parentNode.parentNode.parentNode.parentNode;
+    liNode.classList.add("re-order")
+    if(actionNode.classList.contains("removevoted")) {
+      actionNode.classList.remove("removevoted")
+      actionNode.classList.add("re-removevoted");
+    } else if(actionNode.classList.contains("re-removevoted")) {
+      actionNode.classList.remove("re-removevoted")
+      actionNode.classList.add("removevoted");
+    } else {
+      actionNode.classList.add("removevoted");
     }
   }
   return (
@@ -26,7 +41,7 @@ const VoteItem = ({ vote, onAddVote, onRemoveVote }) => {
           <div className="action">
             <a href="#a" className="add" onClick={(e) => addVote_Combine_Animation(e)}><i className="fas fa-caret-up"></i></a>
             <span className="point"><small>{vote.point}</small> <i className="far fa-kiss-wink-heart"></i></span>
-            <a href="#a" className="remove" onClick={onRemoveVote}><i className="fas fa-caret-down"></i></a>
+            <a href="#a" className="remove" onClick={(e) => removeVote_Combine_Animation(e)}><i className="fas fa-caret-down"></i></a>
           </div>
         </div>
       </li>

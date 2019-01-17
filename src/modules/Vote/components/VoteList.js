@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import VoteItem from './VoteItem';
 
 const VoteList = ({votes, actions}) => {
-  votes = votes.slice(0, 10);
   const voteList = votes.map((vote) => {
     return (
         <VoteItem 

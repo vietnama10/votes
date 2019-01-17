@@ -1,5 +1,5 @@
 .vote-container {
-  .action{
+  .action {
     > * {
       font-size: 20px;
     }
@@ -16,6 +16,99 @@
       i{
         color: rgb(236, 48, 120);
       }
+      position: relative;
+      &::before {
+        content: "+1";
+        font-size: 12px;
+        padding: 0 3px;
+        font-weight: 700;
+        border-radius: 50%;
+        position: absolute;
+        left: -30px;
+        top: -10px;
+        visibility: hidden;
+      }
+      &::after {
+        content: "-1";
+        font-size: 12px;
+        padding: 0 3px;
+        font-weight: 700;
+        border-radius: 50%;
+        position: absolute;
+        left: 15px;
+        top: 10px;
+        visibility: hidden;
+      }
+    }
+    &.voted{
+      .point {
+        &::before {
+          animation: voted 1s linear forwards;
+          transition: all 2s linear; 
+          visibility: visible;
+        }
+      }
+    }
+    &.removevoted{
+      .point {
+        &::after {
+          animation: removevoted 1s linear forwards;
+          transition: all 2s linear; 
+          visibility: visible;
+        }
+      }
+    }
+    &.re-voted {
+      .point {
+        &::before {
+          animation: re-voted 1s linear forwards;
+          transition: all 2s linear; 
+          visibility: visible;
+        }
+      }
+    }
+    &.re-removevoted {
+      .point {
+        &::after {
+          animation: re-removevoted 1s linear forwards;
+          transition: all 2s linear; 
+          visibility: visible;
+        }
+      }
     }
   }
+}
+
+@keyframes voted {
+  0%   {left:-30px; top:-10px; transform: scale(0.2);}
+  20%  {left:-30px; top:-10px; transform: scale(1.6);}
+  40%  {left:-20px; top:-5px; transform: scale(1.6);}
+  60%  {left:-10px; top:-2px; transform: scale(1.4);}
+  80% {left:5px; top:3px; transform: scale(1.2);}
+  100% {left:20px; top:6px; visibility: hidden;}
+}
+@keyframes re-voted {
+  0%   {left:-30px; top:-10px; transform: scale(0.2);}
+  20%  {left:-30px; top:-10px; transform: scale(1.6);}
+  40%  {left:-20px; top:-5px; transform: scale(1.6);}
+  60%  {left:-10px; top:-2px; transform: scale(1.4);}
+  80% {left:5px; top:3px; transform: scale(1.2);}
+  100% {left:20px; top:6px; visibility: hidden;}
+}
+
+@keyframes removevoted {
+  0%   {left:20px; top:10px; transform: scale(0.2);}
+  20%  {left:20px; top:10px; transform: scale(1.6);}
+  40%  {left:25px; top:6px; transform: scale(1.6);}
+  60%  {left:30px; top:2px; transform: scale(1.4);}
+  80% {left:40px; top:-2px; transform: scale(1.2);}
+  100% {left:50px; top:-10px; visibility: hidden;}
+}
+@keyframes re-removevoted {
+  0%   {left:20px; top:10px; transform: scale(0.2);}
+  20%  {left:20px; top:10px; transform: scale(1.6);}
+  40%  {left:25px; top:6px; transform: scale(1.6);}
+  60%  {left:30px; top:2px; transform: scale(1.4);}
+  80% {left:40px; top:-2px; transform: scale(1.2);}
+  100% {left:50px; top:-10px; visibility: hidden;}
 }
