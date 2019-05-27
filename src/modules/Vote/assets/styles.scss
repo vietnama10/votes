@@ -1,78 +1,94 @@
 .vote-container {
-  .action {
-    > * {
-      font-size: 20px;
-    }
-    .fas, .far{
-      padding-right: 15px;
-    }
-    .add, .remove {
-      color: #333;
-      :hover {
-        color: rgb(236, 48, 120);
-      }
-    }
-    .point {
-      i{
-        color: rgb(236, 48, 120);
-      }
-      position: relative;
-      &::before {
-        content: "+1";
-        font-size: 12px;
-        padding: 0 3px;
-        font-weight: 700;
-        border-radius: 50%;
-        position: absolute;
-        left: -30px;
-        top: -10px;
-        visibility: hidden;
-      }
-      &::after {
-        content: "-1";
-        font-size: 12px;
-        padding: 0 3px;
-        font-weight: 700;
-        border-radius: 50%;
-        position: absolute;
-        left: 15px;
-        top: 10px;
-        visibility: hidden;
-      }
-    }
-    &.voted{
-      .point {
-        &::before {
-          animation: voted 1s linear forwards;
-          transition: all 2s linear; 
-          visibility: visible;
+  .vote-list {
+    ul {
+      display: flex;
+      flex-direction: column;
+      li {
+        transition: all 1.5s;
+        &.re-order {
+          visibility: hidden;
+          opacity: 0;
         }
-      }
-    }
-    &.removevoted{
-      .point {
-        &::after {
-          animation: removevoted 1s linear forwards;
-          transition: all 2s linear; 
-          visibility: visible;
-        }
-      }
-    }
-    &.re-voted {
-      .point {
-        &::before {
-          animation: re-voted 1s linear forwards;
-          transition: all 2s linear; 
-          visibility: visible;
-        }
-      }
-    }
-    &.re-removevoted {
-      .point {
-        &::after {
-          animation: re-removevoted 1s linear forwards;
-          transition: all 2s linear; 
-          visibility: visible;
+        .action {
+          > * {
+            font-size: 20px;
+          }
+          .fas, .far{
+            padding-right: 15px;
+          }
+          .add, .remove {
+            color: #333;
+            :hover {
+              color: rgb(236, 48, 120);
+            }
+          }
+          .point {
+            padding: 0;
+            i{
+              color: rgb(236, 48, 120);
+            }
+            position: relative;
+            &::before {
+              content: "\f004";
+              font-size: 12px;
+              padding: 0 3px;
+              font-weight: 700;
+              border-radius: 50%;
+              position: absolute;
+              left: -30px;
+              top: -10px;
+              visibility: hidden;
+              color: rgb(236, 48, 120);
+            }
+            &::after {
+              content: "\f7a9";
+              font-size: 12px;
+              padding: 0 3px;
+              font-weight: 700;
+              border-radius: 50%;
+              position: absolute;
+              left: 15px;
+              top: 10px;
+              visibility: hidden;
+              color: rgb(236, 48, 120);
+            }
+          }
+          &.voted{
+            .point {
+              &::before {
+                animation: voted 1s linear forwards;
+                transition: all 2s linear; 
+                visibility: visible;
+              }
+            }
+          }
+          &.removevoted{
+            .point {
+              &::after {
+                animation: removevoted 1s linear forwards;
+                transition: all 2s linear; 
+                visibility: visible;
+              }
+            }
+          }
+          &.re-voted {
+            .point {
+              &::before {
+                animation: re-voted 1s linear forwards;
+                transition: all 2s linear; 
+                visibility: visible;
+              }
+            }
+          }
+          &.re-removevoted {
+            .point {
+              &::after {
+                animation: re-removevoted 1s linear forwards;
+                transition: all 2s linear; 
+                visibility: visible;
+              }
+            }
+          }
         }
       }
     }

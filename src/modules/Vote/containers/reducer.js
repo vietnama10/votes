@@ -6,8 +6,7 @@ const votes = (state = initVotes, action) =>  {
   switch (action.type) {
     case types.FETCH_VOTES:
     {
-      let votes = orderVotes(action.votes);
-      state = votes;
+      state = action.votes;
       return state;
     }
     case types.VOTE_ADD:
@@ -39,7 +38,7 @@ const addVote = (voteId, votes) => {
       votes[index].point += 1;
     }
   })
-  return orderVotes(votes);
+  return votes;
 }
 
 const removeVote = (voteId, votes) => {
@@ -48,7 +47,7 @@ const removeVote = (voteId, votes) => {
       votes[index].point -= 1;
     }
   })
-  return orderVotes(votes);
+  return votes;
 }
 
 export default votes;
